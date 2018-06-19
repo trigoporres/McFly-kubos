@@ -5,7 +5,8 @@ module.exports = {
     list: function (req, res, next) {
       noteModel.find()
         .then( listNote => {
-          res.render('index', {notes: listNote, title: "Lista de notas"})
+          res.status(200).json({message: 'New note created¡', listNote})
+          //res.render('index', {notes: listNote, title: "Lista de notas"})
         })
         .reject(err => res.status(500).json(err));
     },
