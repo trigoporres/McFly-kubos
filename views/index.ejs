@@ -1,2 +1,22 @@
+<a href="/">Home</a><br>
+<a href="/like">Notas favoritas</a>
 <h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+
+<section>
+  <% notes.forEach( e => { %>
+    <article class="article">
+
+      <a href="/<%= e._id %>">
+        <%= e.title %>
+      </a>
+      
+      <% if (e.like === true) { %>
+        <button style="background-color: blue; color: white">like</button>
+      <% } %>
+      <% if (e.like === false) { %>
+        <button>like</button>
+      <% } %>
+
+    </article>
+  <%  }) %>
+</ul>

@@ -5,4 +5,17 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+
+button{
+  padding: 5px;
+  margin-left: 20px;
+}
+
+.article{
+ width: 20%;
+ border: 1px solid green;
+ border-radius: 20px;
+ padding: 10px;
 }
