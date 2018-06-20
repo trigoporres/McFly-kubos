@@ -5,8 +5,7 @@ module.exports = {
     list: function (req, res, next) {
       noteModel.find()
         .then( listNote => {
-          res.status(200).json({message: 'New note created¡', listNote})
-          //res.render('index', {notes: listNote, title: "Lista de notas"})
+          res.status(200).json({message: 'Get list notes', listNote})
         })
         .reject(err => res.status(500).json(err));
     },
@@ -14,7 +13,7 @@ module.exports = {
     listLike: function (req, res, next) {
       noteModel.find({ "like": true})
         .then( listNote => {
-          res.render('index', {notes: listNote, title: "Lista de notas favoritas"})
+          res.status(200).json({message: 'Get list notes likes', listNote})
         })
         .reject(err => res.status(500).json(err));
     },
@@ -23,7 +22,7 @@ module.exports = {
       const note = req.params.id
       noteModel.findById(note)
         .then( oneNote =>
-          res.render('details', {note: oneNote}))
+          res.status(200).json({message: 'Get one note', oneNote}))
         .reject(err =>
           res.status(500).json({
             message: 'Error when getting note.'
